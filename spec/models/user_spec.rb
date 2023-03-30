@@ -84,16 +84,5 @@ RSpec.describe User, type: :model do
         end.to change { EventAttendance.count }.by(-1)
       end
     end
-
-    describe '性別に関するテスト' do
-      let!(:user) { create(:user) }
-      let!(:event) { create(:event) }
-      it '性別に関するテストが行われること' do
-        expect do
-          user.attend(event)
-        user.cancel_attend(event)
-        end.to change { EventAttendance.count }.by(-1)
-      end
-    end
   end
 end
