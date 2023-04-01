@@ -12,7 +12,7 @@
     <%= f.label :held_at %>
     <%= f.datetime_field :held_at, class: 'form-control' %>
   </div>
-  <% if current_user.gender == 'female' %>
+  <% if current_user.female? %>
     <div class="mb-3">
       <%= f.label :only_woman %>
       <%= f.check_box :only_woman, class: 'form-check-input'%>

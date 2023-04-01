@@ -84,5 +84,25 @@ RSpec.describe User, type: :model do
         end.to change { EventAttendance.count }.by(-1)
       end
     end
+
+    describe 'female?' do
+      let!(:user) { create(:user) }
+
+      context 'when user is female' do
+        before do
+          user.gender = 'female'
+        end
+        
+        it 'returns true' do
+          expect(user.female?).to be_truthy
+        end
+      end
+
+      context 'when user is not female' do
+        it 'returns false' do
+          expect(user.female?).to be_falsey
+        end
+      end
+    end
   end
 end
