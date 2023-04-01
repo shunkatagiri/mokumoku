@@ -2,9 +2,8 @@
 
 class Events::AttendancesController < ApplicationController
   def create
-    logger.debug "EventAttendancesController#create is called"
     @event = Event.find(params[:event_id])
-    if @event.only_woman && current_user.gender != 'female'
+    if @event.can_attend?(current_user)
       redirect_back(fallback_location: root_path, alert: 'このイベントは女性限定です')
     else
     event_attendance = current_user.attend(@event)

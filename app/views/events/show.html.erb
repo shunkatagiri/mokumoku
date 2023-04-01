@@ -88,7 +88,7 @@
           <div class="text-center">
             <% if logged_in? %>
               <% if !current_user.owner?(@event) %>
-                <% if @event.only_woman && current_user.female? %>
+                <% if @event.can_attend?(current_user) %>
                   <p>このイベントは女性限定です</p>
                 <% else %>
                   <% if current_user.attend?(@event) %>
