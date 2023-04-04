@@ -27,4 +27,8 @@ class Event < ApplicationRecord
   def future?
     !past?
   end
+
+  def can_attend?(user)
+    !only_woman || user.gender.eql?('female')
+  end
 end

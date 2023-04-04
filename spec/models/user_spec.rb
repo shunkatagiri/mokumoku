@@ -72,7 +72,7 @@ RSpec.describe User, type: :model do
       end
     end
 
-    describe 'cancel_attend' do
+    describe 'can_attend' do
       let!(:user) { create(:user) }
       let!(:event) { create(:event) }
       before do
