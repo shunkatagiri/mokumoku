@@ -29,6 +29,6 @@ class Event < ApplicationRecord
   end
 
   def can_attend?(user)
-    !only_woman && current_user.gender.eql?('female')
+    !only_woman || user.gender.eql?('female')
   end
 end
